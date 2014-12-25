@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 if (!$_SESSION['inloggning']) {
@@ -23,7 +23,7 @@ if (isset($_GET["file"]) && !isset($_POST['content'])) { // lÃ¤ser och testar vÃ
     $htmlcontent = @file_get_contents($file);
     $_SESSION["htmbackup"] = $htmlcontent;
     $backupfile = '';
-    
+
 } elseif (isset($_POST["content"])) {
     $contentDir = '..'.DIRECTORY_SEPARATOR.'content';
     $contentLangDir = $contentDir .DIRECTORY_SEPARATOR. $_SESSION['langguage'] . '_htm';
@@ -34,7 +34,7 @@ if (isset($_GET["file"]) && !isset($_POST['content'])) { // lÃ¤ser och testar vÃ
     $file = $_POST["file"];
     $aktivid = $_POST['aktivid'];
     @file_put_contents($file, $htmlcontent);
-    $_SESSION["htmbackup"] = NULL;   
+    $_SESSION["htmbackup"] = NULL;
     $_SESSION[$_SESSION['langguage']."_edited"] = true;
     header("Location: ../".$aktivid."");
 
@@ -51,11 +51,11 @@ function createDirs($contentDir,$languageSpecific, $backup){
     }
 
     if (!file_exists($languageSpecific)){
-        mkdir($languageSpecific, 0777, true);    
+        mkdir($languageSpecific, 0777, true);
     }
 
     if (!file_exists($backup)){
-        mkdir($backup, 0777, true);    
+        mkdir($backup, 0777, true);
     }
 }
 
@@ -66,7 +66,11 @@ function createDirs($contentDir,$languageSpecific, $backup){
         <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
         <title>Redigera med tiny</title>
         <base href="http://<?php echo $_SERVER['HTTP_HOST'].$base_url?>">
-        <script type="text/javascript" src="app/lib/tinymce/tinymce.min.js"></script>
+
+        <!-- build:js js/tinymce.min.js -->
+        <script type="text/javascript" src="../bower_components/tinymce/tinymce.jquery.js"></script>
+        <!-- endbuild -->
+
         <link rel="stylesheet" type="text/css" href="app/styles/main.css" />
 
 
@@ -90,10 +94,10 @@ function createDirs($contentDir,$languageSpecific, $backup){
                external_filemanager_path:"<?php echo $base_url?>filemanager/",
                filemanager_title:"Responsive Filemanager" ,
                external_plugins: { "filemanager" : "/<?php echo $base_url?>filemanager/plugin.min.js"},
-               content_css : "<?php echo $base_url; ?>/app/styles/main.css", 
-               templates: [ 
-                    {title: 'quote', description: 'Insert a guote on the site', url : 'app/mceTemplates/quote.html'}, 
-                    {title: 'imgFigure', description: 'Insert a image placeholder for img and img caption', url: 'app/mceTemplates/figure.html'} 
+               content_css : "<?php echo $base_url; ?>/app/styles/main.css",
+               templates: [
+                    {title: 'quote', description: 'Insert a guote on the site', url : 'app/mceTemplates/quote.html'},
+                    {title: 'imgFigure', description: 'Insert a image placeholder for img and img caption', url: 'app/mceTemplates/figure.html'}
                 ]
             });
         </script>

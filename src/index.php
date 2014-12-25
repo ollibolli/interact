@@ -31,7 +31,7 @@
 	if (isset($_SESSION["inloggning"])) { //om inloggning är sant visa rediger länken
 		$htmdir = $draftdir;
 		$needPublish = $_SESSION[$_SESSION['langguage']."_edited"] == true ? 'bg-danger' : '';
-		$edithtml = '<div class="edit"> <a href="app/redigera.php?aktivid='.$page.'&file='.$htmdir.$page.'.php"></a> </div>';
+		$edithtml = '<div class="edit" data-activeId="'.$page.'" data-file="'.$htmdir.$page.'.php"> <a href="#"></a></div>';
 		$editaside = '<div class="edit"><a href="app/redigera.php?aktivid='.$page.'&file='.$htmdir.$page.'_aside.php" class="edit"></a></div>';
 		$editLeft = '<div class="edit"><a href="app/redigera.php?aktivid='.$page.'&file='.$htmdir.$page.'_left.php" class="edit"></a></div>';
 		$editBottom = '<div class="edit"><a href="app/redigera.php?aktivid='.$page.'&file='.$htmdir.$page.'_bottom.php" class="edit"></a></div>';
@@ -113,7 +113,7 @@
 				<div class="row">
 					<div id="logo" class="col-md-10 col-sm-10">
 						<!-- <img src="app/images/logga-InterAct-long2.png" alt="InterAct competence - Logo"> -->
-						<img src="app/images/logga-InterAct-long-H150.png" alt="InterAct competence - Logo">
+						<img src="app/images/logga-InterAct-NY-VERSION.gif" alt="InterAct competence - Logo">
 
 						<?php #echo $editlogo; ?>
 						<?php #(file_exists ($logosrc))? include_once $logosrc: (isset($_SESSION["inloggning"]) ? '': ''); ?>
@@ -135,7 +135,9 @@
 						</button>
 						<div class="collapse navbar-collapse navHeadercollapse" >
 							<?php echo $editmenu; ?>
-							<?php writeContent($menusrc);?>
+							<div class="wrapper">
+                            <?php writeContent($menusrc);?>
+                        </div>
 						</div>
 					</nav>
 				</div>
@@ -145,19 +147,27 @@
 			<div class="row">
 				<main id="content" class="col-md-12 col-sm-12">
 					<?php echo $edithtml; ?>
-					<?php writeContent($contentsrc);?>
+					<div class="wrapper">
+                        <?php writeContent($contentsrc);?>
+                    </div>
 				</main>
 				<section id="left" class="col-md-6 col-sm-6">
 					<?php echo $editLeft; ?>
+                    <div class="wrapper">
 					<?php writeContent($leftsrc);?>
+                    </div>
 				</section>
 				<section class="col-md-6 col-sm-6">
 					<?php echo $editaside; ?>
+                    <div class="wrapper">
 					<?php writeContent($aside);?>
+                    </div>
 				</section>
 				<section class="col-md-12 col-sm-12">
 					<?php echo $editBottom; ?>
+                    <div class="wrapper">
 					<?php writeContent($bottomsrc);?>
+                    </div>
 				</section>
 			</div>
 		</div>
@@ -166,7 +176,9 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
 						 <?php echo $editfooter; ?>
+                        <div class="wrapper">
 						 <?php writeContent($footersrc);?>
+                        </div>
 					</div>
 				</div>
 			</div>
@@ -174,12 +186,11 @@
 
 		<!-- build:js app/js/vendor.js -->
 		<!-- bower:js -->
-		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<script src="bower_components/modernizr/modernizr.js"></script>
-		<script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js"></script>
+    		<script src="bower_components/jquery/dist/jquery.js"></script>
+	    	<script src="bower_components/modernizr/modernizr.js"></script>
+		    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
-
 
 		<!-- build:js app/js/plugins.js -->
 		<script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
@@ -195,6 +206,8 @@
 		<script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
 		<script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
 		<!-- endbuild -->
+
+        <script src="tinymce/jquery.tinymce.min.js"></script>
 
 		<!-- build:js app/js/main.js -->
 		<script src="app/js/main.js"></script>

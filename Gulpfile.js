@@ -7,6 +7,7 @@ var rev = require('gulp-rev');
 var sass = require("gulp-sass");
 var runSequence = require('run-sequence');
 var del = require("del");
+var bower = require('gulp-bower');
 
 /**
  * Clean public directory
