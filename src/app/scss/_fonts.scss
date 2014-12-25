@@ -1,0 +1,63 @@
+/* Font
+--------------------------------------------------
+
+@font-face {
+    font-family: 'dejavu_sans_monooblique';
+    src: url('styles/fonts/DejaVuSansMono-Oblique-webfont.eot');
+    src: url('styles/fonts/DejaVuSansMono-Oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('styles/fonts/DejaVuSansMono-Oblique-webfont.woff') format('woff'),
+         url('styles/fonts/DejaVuSansMono-Oblique-webfont.ttf') format('truetype'),
+         url('styles/fonts/DejaVuSansMono-Oblique-webfont.svg#dejavu_sans_monooblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dejavu_sans_monobook';
+    src: url('styles/fonts/DejaVuSansMono-webfont.eot');
+    src: url('styles/fonts/DejaVuSansMono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('styles/fonts/DejaVuSansMono-webfont.woff') format('woff'),
+         url('styles/fonts/DejaVuSansMono-webfont.ttf') format('truetype'),
+         url('styles/fonts/DejaVuSansMono-webfont.svg#dejavu_sans_monobook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dejavu_sans_monobold_oblique';
+    src: url('styles/fonts/DejaVuSansMono-BoldOblique-webfont.eot');
+    src: url('styles/fonts/DejaVuSansMono-BoldOblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('styles/fonts/DejaVuSansMono-BoldOblique-webfont.woff') format('woff'),
+         url('styles/fonts/DejaVuSansMono-BoldOblique-webfont.ttf') format('truetype'),
+         url('styles/fonts/DejaVuSansMono-BoldOblique-webfont.svg#dejavu_sans_monobold_oblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dejavu_sans_monobold';
+    src: url('styles/fonts/DejaVuSansMono-Bold-webfont.eot');
+    src: url('styles/fonts/DejaVuSansMono-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('styles/fonts/DejaVuSansMono-Bold-webfont.woff') format('woff'),
+         url('styles/fonts/DejaVuSansMono-Bold-webfont.ttf') format('truetype'),
+         url('styles/fonts/DejaVuSansMono-Bold-webfont.svg#dejavu_sans_monobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+} */
+
+@font-face {
+    font-family: "lacuna_regularregular";
+    //src: url('styles/fonts/lacuna-webfont.eot');
+    //src: url('styles/fonts/lacuna-webfont.eot?#iefix') format('embedded-opentype'),
+      src:   url('scss/fonts/lacuna-webfont.woff') format('woff');
+    //     url('styles/fonts/lacuna-webfont.ttf') format('truetype'),
+    //     url('styles/fonts/lacuna-webfont.svg#lacuna_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);

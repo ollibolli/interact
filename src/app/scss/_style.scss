@@ -1,0 +1,264 @@
+$em : #f5f5f5;
+$invertBg : #883333;
+$invertColor : #FFFFFF;
+$invertColorHover: #FFEEEE;
+$invertBgHover: #444444;
+$defBackground:#FFFFFF;
+$secondBackground:#dfe9ff;
+$emBackground:#cfd9ef;
+$border:solid 1px #e5e5e5;
+
+body {
+	font-family:"Lato", sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight:500;
+	color:#556e96;
+	/*font-family:Tahoma, Geneva, sans-serif;*/
+	font-family:"Lato", sans-serif;
+	/*font-family:Georgia, serif;*/
+}
+
+.emBg {
+	background : $em;
+	}
+
+
+/*@media (min-width: 1190px) {
+	.container {
+    	max-width: 920px;
+    	color:#222222;
+  	}
+}*/
+
+h1 {
+	font-size:29;
+}
+
+h2 {
+	font-size:25;
+}
+
+h3 {
+	font-size:22;
+}
+
+img {
+    margin:3px;
+}
+
+aside {
+	padding-top:20px;
+}
+
+.template {
+	width:920px;
+}
+
+.edit {
+	position:relative;
+	z-index:999;
+	a {
+		@extend .glyphicon;
+		@extend .glyphicon-edit;
+		position:absolute;
+		margin-left:-15px;
+	}
+}
+
+.border-bottom {
+	border-bottom:$border
+}
+
+.adminbar {
+	background:#222222;
+	margin-top:-20px;
+}
+
+.navbar-default {
+	border:0;
+	@media (min-width: 768px) {
+		background:none;
+	}
+
+	.navHeadercollapse {
+		ul {
+			display:inline-block;
+			text-align:left;
+			@extend .nav;
+			@extend .navbar-nav;
+			font-family:Lato , sans-serif;
+			font-weight:700;
+			font-size:100%;
+			line-height:100%;
+			color:#000000;
+			.active > a {
+				background:#dfe9ff;
+			}
+			.active:hover > a {
+				background:$emBackground;
+			}
+			>li {
+				a {
+					color:#222222;
+					height:100%;
+					padding-bottom:4px;
+					padding-top:4px;
+					padding-left:8px;
+					padding-right:8px;
+					font-weight:100;
+				}
+				a:hover{
+					background:$emBackground;
+				}
+
+			}
+			>li + li {
+				margin-left:0;
+			}
+
+
+		}
+		@media (min-width: 768px) {
+			ul {
+				font-size:120%;
+
+				.active > a {
+					background:#FFFFFF;
+					border-top:$border;
+				}
+
+				>li {
+					height:45px;
+					border-right:$border;
+					border-radius: 0;
+					a {
+						color:#222222;
+					}
+
+				}
+				>li:first-child {
+					border-left:$border;
+				}
+			}
+		}
+
+	}
+}
+
+.navbar {
+	margin-bottom:5px;
+	margin-top: 0px;
+	@media (min-width: 768px) {
+		//background:#FFFFFF;
+		margin-left:132px;
+		margin-top:-65px;
+	}
+}
+
+/*	>ul {
+		display:inline-block;
+		text-align:left;
+		@extend .nav;
+		@extend .nav-pills;
+		font-family:Lato , sans-serif;
+		font-weight:700;
+		font-size:100%;
+		line-height:100%;
+
+		>li {
+			a {
+				color:#222222;
+				border-right:1px solid #dddddd;
+				border-radius: 0;
+			}
+
+		}
+		>li:first-child {
+			a {
+				border-left:1px solid #dddddd;
+			}
+		}
+		>li + li {
+			margin-left:0;
+		}
+
+	}
+}*/
+
+hr {
+	border-top:1px solid #FFFFFF;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+
+
+.header {
+	h1,h2,h3,h4,h5,h6 {
+		color:#FFFFFF;
+	}
+	background:rgba(223, 233, 255, 1);
+//	background-image:url('../images/logga-InterAct700x345');
+	background-repeat:no-repeat;
+	overflow:hidden;
+	/*@media screen and (min-width: 1190px) {
+		height:228px;
+
+		background-image:url('../images/airplainsInSky.png');
+	}*/
+	.row {
+		overflow:hidden;
+		#logo {
+			img{
+				//width:400%;
+				margin-left: -15px;
+				max-width:650px;
+				width:150%;
+			}
+		}
+		@media screen and (min-width: 768px){
+			#logo {
+				img {
+					vertical-align:none;
+					height:160px;
+					width:730px;
+					margin-top:0px;
+					margin-bottom:0px;
+					max-width:none;
+				//	margin-left: -1243px;
+				//	width:3000px;
+				//	margin-left:-15px;
+				//	width:730px;
+
+				}
+			}
+		}
+	}
+}
+
+#language {
+	a {
+		color:#333333;
+	}
+	float:right;
+	margin-top:-27px;
+	@media screen and (min-width: 768px) {
+		margin-top:0px;
+	}
+}
+
+.quote {
+	display: inline-block;
+	font-style: italic;
+	min-width:3em;
+	color:#333333;
+	font-size:200%;
+	background:#EEEEEE;
+	float:left;
+}
+

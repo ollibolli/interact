@@ -1,0 +1,8 @@
+node_modules
+target
+src/bower_components
+test/bower_components
+src/content
+.idea
+.DS_Store
+losenBinero.txt
