@@ -1,8 +1,10 @@
 node_modules
 target
 src/bower_components
-test/bower_components
+src/app/css
 src/content
+
+test/bower_components
 .idea
 .DS_Store
 losenBinero.txt

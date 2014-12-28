@@ -31,7 +31,7 @@ if (isset($_GET["file"]) && !isset($_POST['content'])) { // l√§ser och testar v√
     createDirs($contentDir,$contentLangDir,$contentLangBackup);
 
     $htmlcontent = $_POST["content"];
-    $file = $_POST["file"];
+    $file = "../" . $_POST["file"];
     $aktivid = $_POST['aktivid'];
     @file_put_contents($file, $htmlcontent);
     $_SESSION["htmbackup"] = NULL;
