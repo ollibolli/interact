@@ -1,5 +1,47 @@
 $border:solid 2px $middleBlue;
 
+body {
+  font-weight:300;
+}
+
+strong {
+  font-weight: 400;
+}
+
+blockquote {
+  border: 0px;
+  //  font-size: $font-size-base * 1.25;
+  line-height: 1.7em;
+  font-weight: 400;
+  color: inherit;
+  font-style: italic;
+}
+
+li > p {
+  margin:0px;
+}
+
+@media (max-width: $screen-xs-max) {
+  h1, .h1 {
+    font-size: floor(($font-size-h1 * 0.8));
+  }
+  h2, .h2 {
+    font-size: floor(($font-size-h2 * 0.8));
+  }
+  h3, .h3 {
+    font-size: floor(($font-size-h3 * 0.8));
+  }
+  h4, .h4 {
+    font-size: floor(($font-size-h4 * 0.8));
+  }
+  h5, .h5 {
+    font-size: floor(($font-size-h5 * 0.8));
+  }
+  h6, .h6 {
+    font-size: floor(($font-size-h6 * 0.8));
+  }
+}
+
 .t11 {
   font-size: floor(($font-size-base * 5.2)); // ~78px
 }
@@ -34,43 +76,8 @@ $border:solid 2px $middleBlue;
   font-size: ceil(($font-size-base * 0.85)); // ~12px
 }
 
-p {
-  font-weight:300;
-}
-
-.half-right {
-  width:50%;
-  float:right;
-}
-.half-left {
-  width:50%;
-  float:left;
-}
-
-.padding-small-left{
-  padding-left:$padding-small;
-}
-.padding-small-right{
-  padding-right:$padding-small;
-}
-
-blockquote {
-  border: 0px;
-  //  font-size: $font-size-base * 1.25;
-  line-height: 1.7em;
-  font-weight: 400;
-  color: inherit;
-  font-style: italic;
-
-}
-
-.jumbotron {
-  .h1 {
-    font-size: ceil(($font-size-base * 1.6));
-  }
-  .p {
-    font-size: ceil(($font-size-base * 1.3));
-  }
+.alert {
+  padding-top:($line-height-computed / 2);
 }
 
 .theme-panel-lighterblue {
@@ -113,6 +120,36 @@ blockquote {
   @include alert-variant(#ffffff, #ffffff, $text-color );
 }
 
+main .row .wrapper{
+  overflow: hidden;
+}
+
+.half-right {
+  width:50%;
+  float:right;
+}
+.half-left {
+  width:50%;
+  float:left;
+}
+
+.padding-small-left{
+  padding-left:$padding-small;
+}
+.padding-small-right{
+  padding-right:$padding-small;
+}
+
+.jumbotron {
+  .h1 {
+    font-size: ceil(($font-size-base * 1.6));
+  }
+  .p {
+    font-size: ceil(($font-size-base * 1.3));
+  }
+}
+
+
 .alert {
   font-size: $font-size-base;
 }
@@ -131,107 +168,6 @@ blockquote {
   }
 }
 
-.nav-container {
-  background: $middleBlue;
-  margin-bottom:43px;
-
-  .nav-wrapper {
-    float:right;
-  }
-
-  .nav-wrapper *, .mce-content-body *  {
-    blockquote,h1,h2,h3,h4,h5,h6,p,pre {
-      margin-left: 0;
-      margin-right: 0;
-      margin-top: 0;
-      padding-left : 0;
-      padding-right : 0;
-    }
-  }
-
-  .navbar-default {
-    border:0;
-    margin:0;
-    .navHeadercollapse {
-//      clear:left;
-      ul {
-        @extend .nav;
-        @extend .navbar-nav;
-      }
-      @media (min-width: $screen-md-min) {
-//        clear:none;
-      }
-    }
-  }
-
-  .navbar-brand {
-    margin-left:154px;
-    background: #ffffff;
-    display: inline;
-    padding:10px 10px;
-
-    @media all and (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
-      position: absolute;
-      display: block;
-      top: -87px;
-    }
-  }
-}
-
-.logo-wrapper {
-  position: relative;
-  height:60px;
-  font-size: $font-size-base;
-
-  #h-blue {
-    position: absolute;
-    width: 100%;
-    top: 2.5em;
-    z-index: -1;
-    left: -1em;
-    > div {
-      height: 1em;
-      margin-left: 1em;
-      background: $lightBlue;
-    }
-  }
-  #h-orange-start {
-    top: 4.2em;
-    left: 1.06em;
-    width: 72px;
-    height: 15px;
-    position: absolute;
-    background: $orange;
-    z-index: -4;
-  }
-  #h-orange-end {
-    top: 4.2em;
-    left: 5.86em;
-    width: 15.53em;
-    height: 1em;
-    position: absolute;
-    background: $orange;
-    z-index: 2;
-  }
-
-  #v-green {
-    left:2.8em;
-    width:3.06em;
-    height:10.66em;
-    position: absolute;
-    background: $green;
-    z-index: -2;
-  }
-  #v-blue-start {
-    left:6.26em;
-    width:2.6em;
-    height:12em;
-    position: absolute;
-    background: $darkBlue;
-    z-index: 1;
-  }
-}
-
 .adminbar {
   background:#222222;
   color:#fff;
@@ -247,32 +183,6 @@ hr {
 .col-centered{
   float: none;
   margin: 0 auto;
-}
-
-.header {
-  h1,h2,h3,h4,h5,h6 {
-  }
-  overflow:hidden;
-
-  .row {
-    overflow:visible;
-    #logo {
-      z-index: -1;
-      img {
-        margin-left: -41px;
-        margin-bottom: -98px;
-        //max-width:650px;
-        z-index: -1;
-      }
-    }
-  }
-}
-
-#language {
-  a {
-    color:$middleBlue;;
-  }
-  float:right;
 }
 
 .quote {

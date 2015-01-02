@@ -114,6 +114,10 @@ function writeContent($contentsrc){
         <div class="row">
             <div class="logo-wrapper">
                 <div id="h-blue"><div></div></div>
+                <div id="h-dark-blue">
+                    <span class="line"></span>
+                    <a href="/"><img src="app/images/brandInterAct-small.svg" alt="InterAct competence" onerror="this.src='brandInterAct-small.png'"></a>
+                </div>
                 <div id="h-orange-start"></div>
                 <div id="h-orange-end"></div>
                 <div id="v-green"></div>
@@ -121,10 +125,8 @@ function writeContent($contentsrc){
                 <div id="v-blue-end"></div>
             </div>
         </div>
-        <div class="row">
-            <div id="language" class="col-md-2 col-sm-2">
-                <p><strong><?php echo $lang ?></strong></p>
-            </div>
+        <div id="language" class="pull-right">
+            <p><strong><?php echo $lang ?></strong></p>
         </div>
     </div>
     <div class="nav-container">
@@ -149,14 +151,14 @@ function writeContent($contentsrc){
     </div>
 </header>
 
-<div class="container">
+<main class="container">
     <div class="row">
-        <main id="content" class="col-md-12 col-sm-12">
+        <section id="content" class="col-md-12 col-sm-12">
             <?php echo $edithtml; ?>
             <div class="wrapper">
                 <?php writeContent($contentsrc);?>
             </div>
-        </main>
+        </section>
     </div>
     <div class="row">
         <section id="left" class="col-md-6 col-sm-6">
@@ -180,12 +182,11 @@ function writeContent($contentsrc){
             </div>
         </section>
     </div>
-</div>
-</div>
+</main>
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12">
+            <div>
                 <?php echo $editfooter; ?>
                 <div class="wrapper">
                     <?php writeContent($footersrc);?>

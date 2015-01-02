@@ -45,7 +45,7 @@ $(document).ready(function(){
       height: height,
       document_base_url: '/',
       plugins: [
-        "advlist autolink close link image lists charmap print preview hr anchor pagebreak",
+        "advlist autolink link image lists charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
         "table contextmenu directionality emoticons paste textcolor responsivefilemanager save code template"
       ],
@@ -92,7 +92,25 @@ $(document).ready(function(){
         {title: 'quote', description: 'Insert a guote on the site', url : 'app/mceTemplates/quote.html'},
         {title: 'imgFigure', description: 'Insert a image placeholder for img and img caption', url: 'app/mceTemplates/figure.html'},
         {title: 'panel', description: 'Insert a panel placeholder', url: 'app/mceTemplates/panel.html'}
-      ]
+      ],
+      setup: function(editor){
+        editor.addButton('close', {
+          text: 'Close',
+          icon: false,
+          onclick: close
+        });
+
+        editor.addMenuItem('close', {
+          text: 'Close',
+          context: 'file',
+          onclick: close
+        });
+
+        function close(){
+          $('#' + editor.id).parent().remove();
+          $('.wrapper').show();
+        }
+      }
     });
     return false;
   }
