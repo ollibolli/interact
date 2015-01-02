@@ -59,20 +59,21 @@ $(document).ready(function(){
       style_formats_merge: true,
       style_formats: [
         {title: "Custom Blocks", items: [
-          {title: "Panel", block: "div", classes : 'panel panel-default panel-body', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-plain', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-em', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-lighterblue', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-lightblue', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-middleblue', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-darkblue', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-green', wrapper : true },
-          {title: "Panel ", block: "div", classes : 'theme-panel-orange', wrapper : true },
           {title: "Jumbotron", block: "div", classes : 'jumbotron', wrapper: true },
-          {title: "Text Right", block: "div", classes : 'padding-small-left', wrapper: true },
-          {title: "Text Left", block: "div", classes : 'padding-small-right', wrapper: true },
-          {title: "Devide Right", block: "div", classes : 'half-right', wrapper: true },
-          {title: "Devide Left", block: "div", classes : 'half-left', wrapper: true }
+          {title: "Box", block: "div", classes : 'box', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-plain', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-em', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-lighterblue', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-lightblue', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-middleblue', wrapper : true },
+          {title: "Pan" +
+            "el ", selector:"div", classes : 'theme-panel-darkblue', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-green', wrapper : true },
+          {title: "Panel ", selector:"div", classes : 'theme-panel-orange', wrapper : true },
+          {title: "Text Right", selector:"div", classes : 'padding-small-left', wrapper: true },
+          {title: "Text Left", selector:"div", classes : 'padding-small-right', wrapper: true },
+          {title: "Devide Right", selector:"div", classes : 'half-right', wrapper: true },
+          {title: "Devide Left", selector:"div", classes : 'half-left', wrapper: true }
         ]},
         {title: "Custom Styles", items: [
           {title: "Font size 11", inline: "span", classes:  "t11" },

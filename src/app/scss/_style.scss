@@ -80,6 +80,34 @@ li > p {
   padding-top:($line-height-computed / 2);
 }
 
+.box {
+  min-height: 10px;
+  margin-bottom: 10px;
+  border-radius: $border-radius-base;
+  border:1px dotted #000000;
+}
+
+.half-right {
+  width:50%;
+  float:right;
+  border:none;
+}
+
+.half-left {
+  width:50%;
+  float:left;
+  border:none;
+}
+
+.padding-small-left{
+  padding-left:$padding-small;
+  border:none;
+}
+.padding-small-right{
+  padding-right:$padding-small;
+  border:none;
+}
+
 .theme-panel-lighterblue {
   @extend .alert;
   @include alert-variant($lighterBlue, darken($lighterBlue, 5%), $text-color );
@@ -122,22 +150,6 @@ li > p {
 
 main .row .wrapper{
   overflow: hidden;
-}
-
-.half-right {
-  width:50%;
-  float:right;
-}
-.half-left {
-  width:50%;
-  float:left;
-}
-
-.padding-small-left{
-  padding-left:$padding-small;
-}
-.padding-small-right{
-  padding-right:$padding-small;
 }
 
 .jumbotron {
