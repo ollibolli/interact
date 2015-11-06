@@ -86,7 +86,9 @@ $(document).ready(function(){
           {title: "Font size 4", inline: "span", classes:  "t4" },
           {title: "Font size 3", inline: "span", classes:  "t3" },
           {title: "Font size 2", inline: "span", classes:  "t2" },
-          {title: "Font size 1", inline: "span", classes:  "t1" }
+          {title: "Font size 1", inline: "span", classes:  "t1" },
+          {title: 'Image Left', selector: 'img', classes: "padding-small-right"},
+          {title: 'Image Right',selector: 'img', classes: "padding-small-left"}          }
         ]}
       ],
       templates: [

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "~3.8.10"
+    "gulp": "~3.9.0"
   },
   "engines": {
     "node": ">=0.8.0"
