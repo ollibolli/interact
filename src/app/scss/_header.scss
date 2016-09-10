@@ -1,3 +1,5 @@
+@import "variables";
+
 .nav-container {
   background: $middleBlue;
   margin-bottom:43px;
@@ -26,7 +28,6 @@
       }
     }
   }
-
   .navbar-brand {
     background: #ffffff;
     padding:10px 10px;
@@ -38,6 +39,12 @@
       display:inline;
     }
   }
+}
+
+.companyName {
+    color: $darkBlue;
+    background: #FFF;
+    font-size: 2em;
 }
 
 .logo-wrapper {
@@ -94,7 +101,7 @@
       height: 2em;
       background: $middleBlue;
     }
-    img {
+    .companyName {
       vertical-align: baseline;
       height: 1.96em;
       display: inline-block;

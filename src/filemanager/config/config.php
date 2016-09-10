@@ -68,7 +68,7 @@ $image_resizing_height=0;
 //******************
 $default_view=0;
 
-//set if the filename is truncated when overflow first row 
+//set if the filename is truncated when overflow first row
 $ellipsis_title_after_first_row=true;
 
 //*************************
@@ -87,7 +87,7 @@ $duplicate_files=true;
 //**********************
 $ext_img = array('jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg'); //Images
 $ext_file = array('doc', 'docx','rtf', 'pdf', 'xls', 'xlsx', 'txt', 'csv','html','xhtml','psd','sql','log','fla','xml','ade','adp','mdb','accdb','ppt','pptx','odt','ots','ott','odb','odg','otp','otg','odf','ods','odp','css','ai'); //Files
-$ext_video = array('mov', 'mpeg', 'mp4', 'avi', 'mpg','wma',"flv","webm"); //Video 
+$ext_video = array('mov', 'mpeg', 'mp4', 'avi', 'mpg','wma',"flv","webm"); //Video
 $ext_music = array('mp3', 'm4a', 'ac3', 'aiff', 'mid','ogg','wav'); //Audio
 $ext_misc = array('zip', 'rar','gz','tar','iso','dmg'); //Archives
 
@@ -118,7 +118,7 @@ $hidden_folders = array();
 $hidden_files = array('config.php');
 
 /*******************
- * JAVA upload 
+ * JAVA upload
  *******************/
 $java_upload=true;
 $JAVAMaxSizeUpload=200; //Gb
@@ -130,7 +130,7 @@ $JAVAMaxSizeUpload=200; //Gb
 
 
 // New image resized creation with fixed path from filemanager folder after uploading (thumbnails in fixed mode)
-// If you want create images resized out of upload folder for use with external script you can choose this method, 
+// If you want create images resized out of upload folder for use with external script you can choose this method,
 // You can create also more than one image at a time just simply add a value in the array
 // Remember than the image creation respect the folder hierarchy so if you are inside source/test/test1/ the new image will create at
 // path_from_filemanager/test/test1/

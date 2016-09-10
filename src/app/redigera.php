@@ -1,41 +1,34 @@
 <?php
 
 session_start();
-if (!$_SESSION['inloggning']) {
-    header("Location:".'index.php');
-}
+const DS = DIRECTORY_SEPARATOR;
+require_once('config.php');
 
+if (!$_SESSION[LOGGED_IN]) {
+    header("Location: /");
+}
 date_default_timezone_set('Europe/Bucharest');
 $base_url = str_replace(basename(__FILE__), '..'.DS, $_SERVER['PHP_SELF']);
 $base_url = realpath($base_url);
+
 if (isset($_POST["content"])) {
     if (get_magic_quotes_gpc()) {
         $_POST["content"] = stripslashes($_POST["content"]); //Viss version l채gger p책 \:ar vid " om s책 ta bort.
     }
-}
-
-if (isset($_GET["file"]) && !isset($_POST['content'])) { // l채ser och testar v채rden och h채ntar filen.
-    $file = '..'.DIRECTORY_SEPARATOR . $_GET["file"];
-    if (!file_exists($file)) {
-        echo $file;
-    };
-    $aktivid = (isset($_GET['aktivid'])) ? $_GET['aktivid'] : '';
-    $htmlcontent = @file_get_contents($file);
-    $_SESSION["htmbackup"] = $htmlcontent;
-    $backupfile = '';
-
-} elseif (isset($_POST["content"])) {
-    $contentDir = '..'.DIRECTORY_SEPARATOR.'content';
-    $contentLangDir = $contentDir .DIRECTORY_SEPARATOR. $_SESSION['langguage'] . '_htm';
+    $contentDir = "../" .CONTENT_DIR;
+    $contentLangDir = $contentDir .DS. $_SESSION['language'] . '_htm';
     $contentLangBackup = $contentLangDir . '_bakup';
-    createDirs($contentDir,$contentLangDir,$contentLangBackup);
-
+    $contentLangDraft = $contentDir .DS. $_SESSION['language'] . '_draft';
     $htmlcontent = $_POST["content"];
-    $file = "../" . $_POST["file"];
+    $file = $_POST["file"];
     $aktivid = $_POST['aktivid'];
-    @file_put_contents($file, $htmlcontent);
+    $contentLangDraftPage = $contentLangDraft . DS . $aktivid;
+
+    createDirs([$contentDir,$contentLangDir,$contentLangBackup, $contentLangDraft, $contentLangDraftPage]);
+
+    file_put_contents($contentLangDraft . DS . $file, $htmlcontent);
     $_SESSION["htmbackup"] = NULL;
-    $_SESSION[$_SESSION['langguage']."_edited"] = true;
+    $_SESSION[$_SESSION['language']."_edited"] = true;
     header("Location: ../".$aktivid."");
 
 } else {
@@ -45,72 +38,20 @@ if (isset($_GET["file"]) && !isset($_POST['content'])) { // l채ser och testar v�
     $backupfile = '';
 }
 
-function createDirs($contentDir,$languageSpecific, $backup){
-    if (!file_exists($contentDir)) {
-        mkdir($contentDir, 0777, true);
-    }
-
-    if (!file_exists($languageSpecific)){
-        mkdir($languageSpecific, 0777, true);
-    }
-
-    if (!file_exists($backup)){
-        mkdir($backup, 0777, true);
+function createDirs($dirs){
+    foreach ($dirs as $key => $dir) {
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
     }
 }
 
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-        <title>Redigera med tiny</title>
-        <base href="http://<?php echo $_SERVER['HTTP_HOST'].$base_url?>">
-
-        <!-- build:js js/tinymce.min.js -->
-        <script type="text/javascript" src="../bower_components/tinymce/tinymce.jquery.js"></script>
-        <!-- endbuild -->
-
-        <link rel="stylesheet" type="text/css" href="app/styles/main.css" />
-
-
-
-        <script type="text/javascript">
-            tinymce.init({
-                selector: "#textarea2",
-                theme: "modern",
-                width: 620,
-                height: 300,
-                document_base_url: '/<?php echo $base_url; ?>',
-                plugins: [
-                     "advlist autolink link image lists charmap print preview hr anchor pagebreak",
-                     "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-                     "table contextmenu directionality emoticons paste textcolor responsivefilemanager save code template"
-               ],
-               toolbar1: "save | undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
-               toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor | print preview",
-               save_enablewhendirty: true,
-               image_advtab: true ,
-               external_filemanager_path:"<?php echo $base_url?>filemanager/",
-               filemanager_title:"Responsive Filemanager" ,
-               external_plugins: { "filemanager" : "/<?php echo $base_url?>filemanager/plugin.min.js"},
-               content_css : "<?php echo $base_url; ?>/app/styles/main.css",
-               templates: [
-                    {title: 'quote', description: 'Insert a guote on the site', url : 'app/mceTemplates/quote.html'},
-                    {title: 'imgFigure', description: 'Insert a image placeholder for img and img caption', url: 'app/mceTemplates/figure.html'}
-                ]
-            });
-        </script>
-    </head>
-    <body>
-        <p>File <?php echo $file; ?></p>
-        <div class="left">
-            <form action="app/redigera.php" method="post">
-                <textarea id="textarea2" name="content">
-                    <?php echo $htmlcontent; ?>
-                </textarea>
-                <input type="hidden" value="<?php echo $file?>" name="file"/><input type="hidden" value="<?php echo $aktivid?>" name="aktivid"/>
-            </form>
-        </div>
-    </body>
-</html>
+function createDirsTree($dirs){
+    $tree = '';
+    foreach ($dirs as $key => $dir) {
+        $tree .= DS.$dir;
+        if (!file_exists($tree)) {
+            mkdir($tree, 0777, true);
+        }
+    }
+}

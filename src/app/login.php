@@ -1,24 +1,26 @@
-<?php 
-// startar sessionen
+<?php
+
 session_start();
+require_once("config.php");
 
-// ange ditt användarnamn och lösenord i variablerna
-$anvandarID = "melo";
-$losenord = "melopower";
-
-if (isset($_POST["anvandarID"]) && isset($_POST["losenord"])) { // kontrollerar om användarnamn och lösenord är rätt
-    if ($_POST["anvandarID"] === $anvandarID && $_POST["losenord"] === $losenord) { // ange den session som lagrar rätt inloggningsuppgifter
-        $_SESSION["inloggning"] = true; // efter rätt inloggning förflyttas användaren till den skyddade sidan
-        header("Location:".'../index.php');
+if (isset($_POST["anvandarID"]) && isset($_POST["losenord"])) {
+    if ($_POST["anvandarID"] === USER && $_POST["losenord"] === PASSWORD) {
+        $_SESSION[LOGGED_IN] = true;
+        header("Location:".'../');
         exit;
     }
     else {
-        $felmeddelande = "Du har angivit fel användarnamn eller lösenord!";
-    } // om användarnamn och lösenord är fel lagras meddelandetexten i variabeln
+        $errorMessage = "Du har angivit fel användarnamn eller lösenord!";
+    }
+} else if (isset($_GET['logout'])) {
+    if (isset($_SESSION[LOGGED_IN])) {
+        unset($_SESSION[LOGGED_IN]);
+    }
+    header("Location: ../index");
 }
-
 ?>
- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" />
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" />
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="<?php echo $stylecss?>" />
@@ -29,9 +31,9 @@ if (isset($_POST["anvandarID"]) && isset($_POST["losenord"])) { // kontrollerar 
     <body>
         <h2>Logga in </h2>
         <p>
-            <?php 
-            echo "<strong><font color='#ff0000'>".$felmeddelande."</font></strong>";
-            echo "<strong><font color='#ff0000'>".$meddelande2."</font></strong>";
+            <?php
+            echo "<strong>".$errorMessage."</strong>";
+            echo "<strong>".$meddelande2."</strong>";
             ?>
         </p>
         <form action="login.php" method="post" name="loginform">

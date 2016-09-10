@@ -88,13 +88,13 @@ li > p {
 }
 
 .half-right {
-  width:50%;
+  width:49%;
   float:right;
   border:none;
 }
 
 .half-left {
-  width:50%;
+  width:49%;
   float:left;
   border:none;
 }
@@ -186,10 +186,10 @@ main .row .wrapper{
 }
 
 hr {
-  border-top:0px solid #ffffff;
+  border-top:1px solid #303030;
   clear:both;
   margin:0;
-  padding:0;
+  padding:0 $padding-small;
 }
 
 .col-centered{

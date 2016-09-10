@@ -3,3 +3,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond $1 !\.(gif|jpg|png|ico|css|js|swf|wav|mp3|less|cur)
 RewriteRule ^(.*)$ index.php?resource=$1 [QSA]
+DirectoryIndex index.php index.html

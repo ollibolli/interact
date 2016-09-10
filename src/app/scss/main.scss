@@ -1,9 +1,9 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
-@import '_variables';
+@import 'variables';
 @import 'fonts';
 @import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
-@import '_bootswatch';
+@import 'bootswatch';
 
   /* Custom page footer */
 .footer {
@@ -81,3 +81,4 @@ body {
 
 @import 'style';
 @import 'header';
+
